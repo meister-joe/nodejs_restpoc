@@ -1,0 +1,35 @@
+{
+  "name": "restpoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meister-joe/nodejs_restpoc.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "joe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meister-joe/nodejs_restpoc/issues"
+  },
+  "homepage": "https://github.com/meister-joe/nodejs_restpoc#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.8.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "nodemon": "^1.19.4",
+    "pug": "^2.0.4"
+  }
+}
