@@ -34,8 +34,9 @@ hwbRouter.use(bodyParser.json());
  */
 
 hwbRouter.route('/')
-.options(cors.cors, (req, res) => { res.sendStatus(200); })
-.get(cors.cors, (req, res, next) => {
+// .options(cors.cors, (req, res) => { res.sendStatus(200); })
+// .get(cors.cors, (req, res, next) => {
+.get((req, res, next) => {
     res.sendStatus(200);
 //   if (req.headers.serversecret === config.serverOwnSecret) {
 //     Company.find({})
@@ -59,3 +60,5 @@ hwbRouter.route('/')
 //     utils.createError(res, 403, 'Forbidden to retrieve registered companies on this server');
 //   }
 });
+
+module.exports = hwbRouter;

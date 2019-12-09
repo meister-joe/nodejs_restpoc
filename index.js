@@ -73,7 +73,7 @@ app.get('/api-docs.json', (req, res) => {
 /**
  *  App Configuration
  */
-var hwbRouter = require('/routes/housewaybill');
+var hwbRouter = require('./api/routes/housewaybill');
 /**
  * Routes Definitions
  */
