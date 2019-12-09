@@ -2,20 +2,21 @@ extends layout
 
 block layout-content
     div.View2
-        h1.Banner DHL IT Services - Business Process Management System
-    div.ViewLogin
-      h3 Login
-      form(action='/login',method='post')
-        div(data-role='fieldcontain')
-          fieldset(data-role='controlgroup')
-            label(for='email') Email :
-            div 
-              input(id='email',type='text',value='',placeholder='@',name='email')
-        div#passworddiv(data-role='fieldcontain')
-          fieldset(data-role='controlgroup')
-            label(for='password') Password :
-            div 
-              input(id='password',type='password',value='',placeholder='',name='password')      
-            br
-            div.NavButton(data-role='fieldcontain')   
-              input.BtnFlat(type='submit',value='OK',data-transition='fade')
+        h1.Banner DHL Global Freight And Forwarding - Connected Logistics
+        br
+        div.Message
+          h3 Login
+          form(action='/login',method='post')
+            div(data-role='fieldcontain')
+              fieldset(data-role='controlgroup')
+                label(for='email') Email :
+                div.Details
+                  input(id='email',type='text',value='',placeholder='@',name='email', required)
+            div#passworddiv(data-role='fieldcontain')
+              fieldset(data-role='controlgroup')
+                label(for='password') Password :
+                div.Details 
+                  input(id='password',type='password',value='',placeholder='',name='password',required)      
+                br
+                div.NavButton(data-role='fieldcontain')   
+                  input.BtnFlat(type='submit',value='OK',data-transition='fade')

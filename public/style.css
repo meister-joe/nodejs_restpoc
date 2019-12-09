@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:800|Merriweather+Sans|Share+Tech+Mono");
 
 :root {
-  --logo-font: "Share Tech Mono", monospace;
+  --logo-font: "Delivery", monospace;
   --header-font: "Raleway", sans-serif;
   --core-font: "Merriweather Sans", sans-serif;
 
@@ -31,7 +31,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Delivery"
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,23 +76,35 @@ a {
   height: 100%;
   width: 100%;
 
-  padding: 20px;
-
-  
+  padding: 20px;  
   background-size: cover;
-
+  background-image: url('ship.jpg');
   font-family: var(--core-font);
 }
 
 .View2 {
-    flex: 0;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: baseline;
+    align-items: center;
     width: 100%;
     padding: 20px;          
-  
+    background-size: cover;
+    background-image: url('ship.jpg');
+    font-family: var(--core-font);
+  }
+
+.View3 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    /* align-items: center; */
+    width: 100%;
+    padding: 10px;          
+    background-size: cover;
+    background-image: url('ship.jpg');
     font-family: var(--core-font);
   }
 
@@ -108,12 +120,13 @@ a {
 
   overflow: hidden;
   background-image: url("dhl1.jpg");
+  background-position-x: 5px;
   background-repeat: no-repeat;
   background-position-y: center;
-  background-size: 17%;
+  background-size: 15%;
   background-color: #F1F1F1;
   padding: 15px;
-
+  background-color:transparent;
   font-family: var(--logo-font);
 
   border-bottom: var(--ui-shawdow-border);
@@ -121,21 +134,23 @@ a {
 }
 
 .Message {
-  background: white;
+  /* background: white; */
   border-radius: 5px;
-  padding: 30px;
+  padding: 50px;
   border-bottom: var(--ui-shawdow-border);
   box-shadow: var(--ui-shawdow);
 }
 
 .Message > .Title {
   padding-bottom: 20px;
+  
 }
 
 .Message > .Details {
   display: flex;
   flex-direction: column;
   line-height: 1.5em;
+  color: var(--primary) ;
 }
 
 .NavButtons {
@@ -152,7 +167,6 @@ a {
   align-items: center;
 
   height: 55px;
-  width: 150px;
 
   background: var(--highlight);
 
@@ -170,15 +184,13 @@ a {
 
 .ViewLogin
 {
-  flex: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;          
-  
-    font-family: var(--core-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  position: 50px;
+  background-color:yellowgreen;
+  font-family: var(--core-font);
 }
 .BtnFlat {
   border: none;
@@ -186,4 +198,34 @@ a {
   background: none;
   font-family: var(--core-font);
   font-size: 12pt;
+  color: white;
+}
+
+.DhlFooter {
+  font-style: var(--primary);
+}
+
+.topbar-wrapper img {
+  content:url('ship.jpg');
+}
+.ApiFrame {
+  background: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border-radius: 5px;
+  padding: 10px;
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow);
+}
+.Frame1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  width: 100%;
+  height: 100%;
+  align-items: baseline;
+  border: none;
 }
