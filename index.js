@@ -70,20 +70,40 @@ app.get('/api-docs.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');  
   res.status(200).json(specs);  
 }); 
+
 /**
  *  App Configuration
  */
-var hwbRouter = require('./api/routes/housewaybill');
-/**
+
+ /**
  * Routes Definitions
  */
+
+var hwbRouter = require('./api/routes/housewaybill');
+var sysInfoRouter = require('./api/routes/sysinfo');
+
+
 app.use('/housewaybill', hwbRouter);
+app.use('/sysinfo', sysInfoRouter);
 app.get("/loginlanding",(req,res) => {
     res.render("login", { title: "Login" });
   });
 
 app.get("/", (req, res) => {
     res.render("index", { title: "Home" });
+  });
+
+  app.get("/afterlogin/:email", (req, res) => {
+    var jsonStr=JSON.stringify(req.params);
+    console.log(jsonStr);
+    res.render('housewaybill', { 
+      getUsername: function() {
+        var dta=JSON.parse(jsonStr);
+        return dta.email;
+      }
+  
+  
+  });
   });
 
 
@@ -99,7 +119,14 @@ app.post('/login', (req, res) => {
     else
     {
     console.log(req.body.email);
-    app.use(session({
+    if (req.body.password!='Welcome123')
+    {
+      res.append('Content-Type', 'text/plain');
+      res.sendStatus(401);
+    }
+    else
+    {
+      app.use(session({
         key : req.body.email,
         secret : req.body.password,
         resave : true,
@@ -112,11 +139,14 @@ app.post('/login', (req, res) => {
             sameSite : true
         }
     }));
-    var output = JSON.stringify(data);
-    //res.append('Content-Type', 'application/json');
-     res.render('afterlogin', { title: 'Welcome ' + req.body.email, email: req.body.email });
-    // res.redirect('/afterlogin?email=' + req.body.email);
-    // res.end(output);
+      // var output = JSON.stringify(data);
+      //res.append('Content-Type', 'application/json');
+      //  res.render('afterlogin', { title: 'Welcome ' + req.body.email, email: req.body.email });
+      //  res.render('housewaybill', { title: 'Welcome ' + req.body.email, email: req.body.email });
+      res.redirect('/afterlogin/' + req.body.email);
+      // res.end(output);
+    }
+    
   }
   });
 

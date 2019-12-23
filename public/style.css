@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:800|Merriweather+Sans|Share+Tech+Mono");
+/* @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro"); */
 
 :root {
   --logo-font: "Delivery", monospace;
-  --header-font: "Raleway", sans-serif;
-  --core-font: "Merriweather Sans", sans-serif;
+  --header-font: "Comfortaa", sans-serif;
+  --core-font: "Public Sans", sans-serif;
 
   --primary: #F1F1F1;
   --secondary: #2a3747;
@@ -52,6 +52,14 @@ h3 {
 
 h1 {
   font-size: 40px;
+}
+
+h6 {
+  color : var(--primary);
+}
+
+td {
+  color : var(--primary);
 }
 
 a {
@@ -108,6 +116,31 @@ a {
     font-family: var(--core-font);
   }
 
+.View4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    /* align-items: center; */
+    width: 100%;
+    padding: 10px;          
+    background-size: cover;
+    background-image: url('ship.jpg');
+    font-family: var(--core-font);
+  }
+  .View5 {
+    background: transparent;
+    flex: 1;
+    display: flex;
+    /* flex-direction: column;
+    justify-content: baseline; */
+    /* align-items: center; */
+    width: 100%;
+    padding: 5px;          
+    /* background-size: cover; */
+
+    font-family: var(--core-font);
+  }
 .Banner {
   display: flex;
   flex-direction: column;
@@ -141,12 +174,41 @@ a {
   box-shadow: var(--ui-shawdow);
 }
 
+.Message2 {
+  display: flex;
+  /* background: whitesmoke; */
+  border-radius: 5px;
+  padding: 20px;
+  font-family: var(--logo-font);
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow);
+}
+
+.Message3 {
+  display: flex;
+  background : transparent;
+  padding: 5px;
+  /* border-radius: 5px;
+  
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow); */
+}
+
 .Message > .Title {
   padding-bottom: 20px;
   
 }
-
+.Details {
+  color: var(--primary) ;
+}
 .Message > .Details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5em;
+  color: var(--primary) ;
+}
+
+.Message2 > .Details {
   display: flex;
   flex-direction: column;
   line-height: 1.5em;
@@ -202,6 +264,7 @@ a {
 }
 
 .DhlFooter {
+  height: 12px;
   font-style: var(--primary);
 }
 
@@ -209,11 +272,27 @@ a {
   content:url('ship.jpg');
 }
 .ApiFrame {
-  background: white;
+  background: transparent;
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  flex-basis: 15%;
+  align-items: flex-end;
+  left: 15%;
+  border-radius: 5px;
+  padding: 10px;
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow);
+}
+
+.ApiFrame1 {
+  background: whitesmoke;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 15%;
+  align-items: flex-end;
+  left: 15%;
   border-radius: 5px;
   padding: 10px;
   border-bottom: var(--ui-shawdow-border);

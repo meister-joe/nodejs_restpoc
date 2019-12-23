@@ -29,8 +29,10 @@
     "body-parser": "^1.8.1",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "node": "^12.13.1",
     "nodemon": "^1.19.4",
     "pug": "^2.0.4",
+    "request": "^2.88.0",
     "swagger-jsdoc": "^3.5.0",
     "swagger-ui-express": "^4.1.2"
   }

@@ -1,0 +1,17 @@
+extends layout
+
+block layout-content
+    div.View4
+        h1.Banner System Integration Express - BPMS Environment Health Monitor
+        div.View5
+            div.Message2 
+                table
+                    tr
+                        td Welcome #{getUsername()}!
+                    tr
+                        td 
+                            a(href="/sysinfo" target="mainscr") System Information
+            div.Message3
+            div.ApiFrame1
+                iframe.Frame1(name="mainscr")
+        h6.DhlFooter (c) 2019 DHL International
