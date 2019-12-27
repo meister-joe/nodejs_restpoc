@@ -1,10 +1,21 @@
 extends layout
 
 block layout-content
-    div.View5
-        h1 System Information
-        div.Message2
+    div.View6        
+        if (!Array.isArray(dbresults) || !dbresults.length)
+            h4(style='color : orange') Error occured : #{dberr}
+            h6 #{err}
+        else 
             table
+                th System Information
                 tr
-                    td Server status
-                    td #{status}
+                tr
+                    th Server Name
+                    th Server Port
+                    th Server Type
+                each dbresult in dbresults
+                    tr
+                        td=dbresult.sysinfo.hosts.name
+                        td=dbresult.sysinfo.hosts.port
+                        td=dbresult.sysinfo.hosts.type
+                        td=dbresult.sysinfo.hosts.status
