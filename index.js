@@ -8,16 +8,16 @@
  * App Variables
  */
 
-const path = require("path");
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 8080;
-const session = require('express-session');
-var bodyParser = require('body-parser');
-var fs = require('fs');
+import { join } from "path";
+import express, { static } from 'express';
+var app = express();
+var port = process.env.PORT || 8080;
+import session from 'express-session';
+import { urlencoded } from 'body-parser';
+import fs from 'fs';
 
-var swaggerUi = require('swagger-ui-express');
-const swaggerJsdoc = require('swagger-jsdoc');
+import { serve, setup } from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
 
 const options = {
   swaggerDefinition: {
@@ -39,7 +39,7 @@ const specs = swaggerJsdoc(options);
 
 
 // Set Swagger API documentation
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/api-docs', serve, setup(specs));
 app.get('/api-docs.json', (req, res) => {  
   res.setHeader('Content-Type', 'application/json');  
   res.status(200).json(specs);  
@@ -53,8 +53,8 @@ app.get('/api-docs.json', (req, res) => {
  * Routes Definitions
  */
 
-var hwbRouter = require('./api/routes/housewaybill');
-var sysInfoRouter = require('./api/routes/sysinfo');
+import hwbRouter from './api/routes/housewaybill';
+import sysInfoRouter from './api/routes/sysinfo';
 
 
 app.use('/housewaybill', hwbRouter);
@@ -81,7 +81,7 @@ app.get("/", (req, res) => {
   });
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(urlencoded({ extended: true }));
 app.post('/login', (req, res) => {
     var data = req.body;
     console.log(req.body.email);
@@ -92,27 +92,27 @@ app.post('/login', (req, res) => {
     }
     else
     {
-    console.log(req.body.email);
-    if (req.body.password!='Welcome123')
-    {
-      res.append('Content-Type', 'text/plain');
-      res.sendStatus(401);
-    }
-    else
-    {
-      app.use(session({
-        key : req.body.email,
-        secret : req.body.password,
-        resave : true,
-        saveUninitialized : true,
-        cookie : {
+      console.log(req.body.email);
+      if (req.body.password!='Welcome123')
+      {
+        res.append('Content-Type', 'text/plain');
+        res.sendStatus(401);
+      }
+      else
+      {
+        app.use(session({
+          key : req.body.email,
+          secret : req.body.password,
+          resave : true,
+          saveUninitialized : true,
+          cookie : {
             expires : 60000,
             httpOnly : true,
             path : '/login',
             secure : "auto",
             sameSite : true
-        }
-    }));
+          }
+        }));
       // var output = JSON.stringify(data);
       //res.append('Content-Type', 'application/json');
       //  res.render('afterlogin', { title: 'Welcome ' + req.body.email, email: req.body.email });
@@ -128,13 +128,13 @@ app.post('/login', (req, res) => {
  * Server Activation
  */
 
-
+app.set("views", join(__dirname, "views"));
+app.set("view engine", "pug");
+app.use(static(join(__dirname,"public")));
 app.listen(port);
 console.log('Application is started at port : ' + port);
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
-app.use(express.static(path.join(__dirname,"public")));
+
 
 
 

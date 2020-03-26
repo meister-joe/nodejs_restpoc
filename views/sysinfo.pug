@@ -4,7 +4,7 @@ block layout-content
     div.View6        
         if (!Array.isArray(dbresults) || !dbresults.length)
             h4(style='color : orange') Error occured : #{dberr}
-            h6 #{err}
+            h6(style='color : red') Unknown error : #{err}
         else 
             table
                 th System Information
