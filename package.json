@@ -32,7 +32,7 @@
     "mongodb": "^3.5.2",
     "node": "^13.6.0",
     "nodemon": "^2.0.17",
-    "pug": "^3.0.1",
+    "pug": "^3.0.2",
     "request": "^2.88.0",
     "swagger-jsdoc": "^3.5.0",
     "swagger-ui-express": "^4.2.0",
