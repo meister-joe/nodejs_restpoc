@@ -30,7 +30,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "mongodb": "^3.5.2",
-    "node": "^13.6.0",
+    "node": "^18.9.0",
     "nodemon": "^2.0.17",
     "pug": "^3.0.1",
     "request": "^2.88.0",
